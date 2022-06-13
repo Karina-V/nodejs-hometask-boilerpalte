@@ -14,6 +14,8 @@ routes(app);
 app.use('/', express.static('./client/build'));
 
 const port = 3050;
-app.listen(port, () => {});
+app.listen(port, 'localhost', () => {
+    console.log(`App listening on port http://localhost:${port}`)
+});
 
 exports.app = app;

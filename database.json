@@ -1,0 +1,325 @@
+{
+  "users": [
+    {
+      "email": "karinavizovec@gmail.com",
+      "password": "12345",
+      "firstName": "Каріна",
+      "lastName": "Вижовець",
+      "phoneNumber": "0734691292",
+      "id": "76f25198-7f3b-47ac-9370-84bafe6141d1",
+      "createdAt": "2022-06-13T15:55:27.058Z"
+    },
+    {
+      "email": "karinavizovec@gmail.com",
+      "password": "12345",
+      "firstName": "Каріна",
+      "lastName": "Вижовець",
+      "phoneNumber": "0734691292",
+      "id": "26683b9a-551b-4358-afba-944e2b399edc",
+      "createdAt": "2022-06-13T15:55:50.711Z"
+    },
+    {
+      "email": "karinavizovec@il.com",
+      "password": "12323",
+      "firstName": "Каріна",
+      "lastName": "Вижовець",
+      "phoneNumber": "0734691292",
+      "id": "73bf33f3-f7fa-4639-966a-f9f8f8104cea",
+      "createdAt": "2022-06-13T16:19:43.607Z"
+    },
+    {
+      "email": "karinavizovec@gmail.com",
+      "password": "123567",
+      "firstName": "Каріна",
+      "lastName": "Вижовець",
+      "phoneNumber": "0734691292",
+      "id": "7b276c5e-0202-4c08-9fe4-20e1f081a1b3",
+      "createdAt": "2022-06-13T16:30:30.539Z"
+    },
+    {
+      "email": "karinavizovec@gmail.com",
+      "password": "123567",
+      "firstName": "Каріна",
+      "lastName": "Вижовець",
+      "phoneNumber": "+380734691292",
+      "id": "cafbe54e-4eb8-4a5e-b4cc-f251eaf7ecb7",
+      "createdAt": "2022-06-13T16:31:17.067Z"
+    },
+    {
+      "email": "karinavizovec@gmail.com",
+      "password": "23456",
+      "firstName": "Каріна",
+      "lastName": "Вижовець",
+      "phoneNumber": "+38073469129",
+      "id": "a4bc7417-e7f5-4651-82ee-358643e02190",
+      "createdAt": "2022-06-13T16:32:26.220Z"
+    },
+    {
+      "email": "karinavizovec@gmail.com",
+      "password": "1234567",
+      "firstName": "Каріна",
+      "lastName": "Вижовець",
+      "phoneNumber": "0734691292",
+      "id": "3c3a6f04-17f8-4398-9474-1383f4900578",
+      "createdAt": "2022-06-13T16:33:54.011Z"
+    },
+    {
+      "email": "karinavizovec@gmail.com",
+      "password": "11",
+      "firstName": "Каріна",
+      "lastName": "Вижовець",
+      "phoneNumber": "0734691292",
+      "id": "06a1eb2e-f61b-46ee-bc58-3c77a3f6b739",
+      "createdAt": "2022-06-13T17:19:09.442Z"
+    },
+    {
+      "email": "karinavizovec@gmail.com",
+      "password": "112",
+      "firstName": "Каріна",
+      "lastName": "Вижовець",
+      "phoneNumber": "0734691292",
+      "id": "4a77678c-d055-436a-8a9c-3e9501bfebdc",
+      "createdAt": "2022-06-13T17:19:19.536Z"
+    },
+    {
+      "email": "karinavizovec@gmail.com",
+      "password": "qqwe",
+      "firstName": "Каріна",
+      "lastName": "Вижовець",
+      "phoneNumber": "0734691292",
+      "id": "b091819b-1fee-4a35-9d41-1c65803b4b20",
+      "createdAt": "2022-06-13T17:20:24.097Z"
+    },
+    {
+      "email": "karinavizovec@gmail.com",
+      "password": "qqwe",
+      "firstName": "Каріна",
+      "lastName": "Вижовець",
+      "phoneNumber": "+380734691292",
+      "id": "127424a8-9acd-411b-b5dc-ccb4c58035a1",
+      "createdAt": "2022-06-13T17:20:37.272Z"
+    },
+    {
+      "email": "karinavizovec@gmail.com",
+      "password": "3333",
+      "firstName": "Каріна",
+      "lastName": "Вижовець",
+      "phoneNumber": "+30734691292",
+      "id": "cde039ae-6a28-4139-a85d-c1d73968ed97",
+      "createdAt": "2022-06-13T18:07:52.401Z"
+    },
+    {
+      "email": "karinavizovec@gmail.com",
+      "password": "3333",
+      "firstName": "Каріна",
+      "lastName": "Вижовець",
+      "phoneNumber": "+380734691292",
+      "id": "5cfefb68-f4d2-4def-be91-659727845d63",
+      "createdAt": "2022-06-13T18:08:21.206Z"
+    },
+    {
+      "email": "karinavizovec@gmail.com",
+      "password": "11ww",
+      "firstName": "Каріна",
+      "lastName": "Вижовець",
+      "phoneNumber": "0734691292",
+      "id": "b1eee4fe-26f9-4cdc-95e2-88f86156f1c0",
+      "createdAt": "2022-06-13T18:43:25.820Z"
+    },
+    {
+      "email": "karinavizovec@gmail.com",
+      "password": "11ww",
+      "firstName": "Каріна",
+      "lastName": "Вижовець",
+      "phoneNumber": "0734691292",
+      "id": "79e65103-b1e3-4eb6-b476-74e7a6d45a69",
+      "createdAt": "2022-06-13T18:43:29.880Z"
+    },
+    {
+      "email": "karinavizovec@gmail.com",
+      "password": "11ww",
+      "firstName": "Каріна",
+      "lastName": "Вижовець",
+      "phoneNumber": "+380734691292",
+      "id": "9fc577e7-2cc9-40b8-b641-735c39903f11",
+      "createdAt": "2022-06-13T18:43:41.675Z"
+    },
+    {
+      "email": "karinavizovec@gmail.com",
+      "password": "5555",
+      "firstName": "Каріна",
+      "lastName": "Вижовець",
+      "phoneNumber": "0734691292",
+      "id": "4f578534-5485-459b-9e1a-10f25bff950e",
+      "createdAt": "2022-06-13T21:11:49.066Z"
+    },
+    {
+      "email": "karinavizovec@gmail.com",
+      "password": "5555",
+      "firstName": "Каріна",
+      "lastName": "Вижовець",
+      "phoneNumber": "+380734691292",
+      "id": "39eae93e-e411-4f0c-ab9b-8763f1e725c5",
+      "createdAt": "2022-06-13T21:11:58.759Z"
+    },
+    {
+      "email": "karinavizovec@gmail.com",
+      "password": "2223",
+      "firstName": "Каріна",
+      "lastName": "Вижовець",
+      "phoneNumber": "0734691292",
+      "id": "d0351d0c-8b94-4ba4-872a-895288bdbb30",
+      "createdAt": "2022-06-13T21:30:09.337Z"
+    },
+    {
+      "email": "karinavizovec@gmail.com",
+      "password": "2223",
+      "firstName": "Каріна",
+      "lastName": "Вижовець",
+      "phoneNumber": "+380734691292",
+      "id": "a42a5566-ab74-4d1d-8d13-7023e3a3b374",
+      "createdAt": "2022-06-13T21:30:14.647Z"
+    },
+    {
+      "email": "karinavizovec@gmail.com",
+      "password": "44444",
+      "firstName": "Каріна",
+      "lastName": "Вижовець",
+      "phoneNumber": "0734691292",
+      "id": "36ad63fe-09ed-43ae-9962-8e13a297f860",
+      "createdAt": "2022-06-13T21:54:59.204Z"
+    },
+    {
+      "email": "karinavizovec@gmail.com",
+      "password": "44444",
+      "firstName": "Каріна",
+      "lastName": "Вижовець",
+      "phoneNumber": "+380734691292",
+      "id": "f6e4b457-f333-4872-bf46-1d7f802a8060",
+      "createdAt": "2022-06-13T21:55:05.851Z"
+    },
+    {
+      "email": "karinavizovec@gmail.com",
+      "password": "1111",
+      "firstName": "Каріна",
+      "lastName": "Вижовець",
+      "phoneNumber": "0734691292",
+      "id": "58d83d8f-14fd-4f4a-be51-b16a3406b5f6",
+      "createdAt": "2022-06-13T22:09:00.157Z"
+    },
+    {
+      "email": "karinavizovec@gil.com",
+      "password": "1111",
+      "firstName": "Каріна",
+      "lastName": "Вижовець",
+      "phoneNumber": "+380734691292",
+      "id": "ae46ae23-ea31-421e-816c-47e5f3c4abd1",
+      "createdAt": "2022-06-13T22:09:08.389Z"
+    },
+    {
+      "email": "karinavizovec@gmail.com",
+      "password": "1111",
+      "firstName": "Каріна",
+      "lastName": "Вижовець",
+      "phoneNumber": "+380734691292",
+      "id": "37d35c9b-703e-4a4a-899b-e02ab70db308",
+      "createdAt": "2022-06-13T22:09:17.526Z"
+    },
+    {
+      "email": "karinavizovec@gmail.com",
+      "password": "11",
+      "firstName": "Каріна",
+      "lastName": "Вижовець",
+      "phoneNumber": "+380734691292",
+      "id": "7905c364-43bc-4de2-93f3-087934d94906",
+      "createdAt": "2022-06-13T22:28:33.533Z"
+    },
+    {
+      "email": "karinavizovec@gmail.com",
+      "password": "1111",
+      "firstName": "Каріна",
+      "lastName": "Вижовець",
+      "phoneNumber": "+380734691292",
+      "id": "0c6e4d6b-ed7b-4ff9-ace6-43f11462dc76",
+      "createdAt": "2022-06-13T22:28:38.677Z"
+    },
+    {
+      "email": "karinavizovec@gmail.com",
+      "password": "12345",
+      "firstName": "Каріна",
+      "lastName": "Вижовець",
+      "phoneNumber": "0734691292",
+      "id": "ab2c8c92-6ee7-45d4-8981-18405153c3a6",
+      "createdAt": "2022-06-13T22:30:32.810Z"
+    },
+    {
+      "email": "karinavizovec@gmail.com",
+      "password": "12345",
+      "firstName": "karn",
+      "lastName": "vyz",
+      "phoneNumber": "+380734691292",
+      "id": "e5fa9093-a6e5-474d-92c9-b6f79f902256",
+      "createdAt": "2022-06-13T22:33:47.398Z"
+    },
+    {
+      "email": "karinavizovec@gmail.com",
+      "password": "11111",
+      "firstName": "qqq",
+      "lastName": "qqqq",
+      "phoneNumber": "+380734691777",
+      "id": "dc9c624d-7913-4e61-b680-2d3da1321f7d",
+      "createdAt": "2022-06-13T22:38:30.469Z"
+    }
+  ],
+  "fighters": [
+    {
+      "name": "rr",
+      "power": 2,
+      "defense": 4,
+      "health": 100,
+      "id": "c02c8871-a00e-45e3-a11d-9ee2f79bd973",
+      "createdAt": "2022-06-13T21:38:23.559Z"
+    },
+    {
+      "name": "rrrt",
+      "power": 6,
+      "defense": 6,
+      "health": 100,
+      "id": "e6577b17-b338-4063-ab92-ceac7e0c4b20",
+      "createdAt": "2022-06-13T21:38:43.174Z"
+    },
+    {
+      "name": "eerr",
+      "power": 3,
+      "defense": 2,
+      "health": 100,
+      "id": "a6f1a1f7-27b9-478f-9351-9203945e1479",
+      "createdAt": "2022-06-13T21:55:31.771Z"
+    },
+    {
+      "name": "www",
+      "power": 100,
+      "defense": 10,
+      "health": 100,
+      "id": "59b76872-e358-4a89-830b-c88eca34f866",
+      "createdAt": "2022-06-13T22:10:25.560Z"
+    },
+    {
+      "name": "wwwr",
+      "power": 100,
+      "defense": 10,
+      "health": 100,
+      "id": "f729acfa-2509-4b93-b8d9-2d3fb44ee1df",
+      "createdAt": "2022-06-13T22:10:39.481Z"
+    },
+    {
+      "name": "eerrq",
+      "power": 100,
+      "defense": 5,
+      "health": 100,
+      "id": "fa092603-06ae-40f5-bbdc-785075aa2043",
+      "createdAt": "2022-06-13T22:29:30.781Z"
+    }
+  ],
+  "fights": []
+}

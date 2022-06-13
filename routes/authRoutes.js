@@ -7,7 +7,9 @@ const router = Router();
 router.post('/login', (req, res, next) => {
     try {
         // TODO: Implement login action (get the user if it exist with entered credentials)
-        res.data = data;
+        const foundUser = AuthService.login(req.body);
+
+        res.json(foundUser);
     } catch (err) {
         res.err = err;
     } finally {
