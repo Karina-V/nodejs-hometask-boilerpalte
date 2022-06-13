@@ -23,15 +23,6 @@ class UserService {
         return UserRepository.delete(id);
     }
 
-    // create(userData) {
-    //     return UserRepository.create(userData) || null;
-    // }
-
-    // update(userId, userDataToUpdate) {
-    //     return UserRepository.update(userId, userDataToUpdate) || null;
-    // }
-
-
     search(search) {
         const item = UserRepository.getOne(search);
         if (!item) {
