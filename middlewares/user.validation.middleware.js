@@ -16,6 +16,7 @@ const createUserValid = (req, res, next) => {
     if (userData.password.length < 3) {
         res.status(400).send('Password should be at least 3 characters length!');
     }
+
     if (!userData.email.includes('gmail')) {
         res.status(400).send(`Email should be have 'gmail'!`);
     }
@@ -29,7 +30,32 @@ const createUserValid = (req, res, next) => {
 const updateUserValid = (req, res, next) => {
     // TODO: Implement validatior for user entity during update
 
+    let isError = false;
+    const users = userService.getUsers();
+    users
+        .filter((user) => user.id !== id)
+        .map((user) => {
+            if (
+                email &&
+                user.email.toLowerCase() === email.toLowerCase()
+            ) {
+                res.status(400).send('A user with such an email address already exists! Please, use a different email address!');
+                isError = true;
+            }
+            if (
+                phoneNumber &&
+                user.phoneNumber.toLowerCase() === phoneNumber.toLowerCase()
+            ) {
+                res.status(400).send('A user with such a phone number already exists! Please, use a different phone number!');
+                isError = true;
+            }
+        });
+
+    if (isError) {
+        return middleware(req, res, next);
+    }
     next();
+
 }
 
 exports.createUserValid = createUserValid;
