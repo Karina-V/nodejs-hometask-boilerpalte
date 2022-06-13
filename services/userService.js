@@ -6,10 +6,18 @@ class UserService {
 
     search(search) {
         const item = UserRepository.getOne(search);
-        if(!item) {
+        if (!item) {
             return null;
         }
         return item;
+    }
+
+    create(userData) {
+        return UserRepository.create(userData) || null;
+    }
+
+    update(userId, userDataToUpdate) {
+        return UserRepository.update(userId, userDataToUpdate) || null;
     }
 }
 
