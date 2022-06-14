@@ -23,14 +23,14 @@ router.get('/:id', (req, res, next) => {
 );
 
 router.post('/', createFighterValid, (req, res, next) => {
-    res.data = fighterService.addUser(req.body);
+    res.data = fighterService.addFighter(req.body);
     next();
 },
     responseMiddleware
 );
 
 router.put('/:id', updateFighterValid, (req, res, next) => {
-    res.data = fighterService.updateUser(req.params.id, req.body);
+    res.data = fighterService.updateFighter(req.params.id, req.body);
     next();
 },
     responseMiddleware
