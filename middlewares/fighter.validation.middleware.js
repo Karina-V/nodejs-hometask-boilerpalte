@@ -1,78 +1,42 @@
+const isEmpty = require('lodash.isempty');
 const { fighter } = require('../models/fighter');
 const fighterService = require("../services/fighterService");
-const { responseMiddleware: middleware } = require("../middlewares/response.middleware");
-const { FighterRepository } = require('../repositories/fighterRepository');
+
+const isExist = (obj, field) => Boolean(obj[field]);
+const isValidFighterProperty = (prop) => fighter.hasOwnProperty(prop);
+const hasFieds = (obj, fieldsArr) => fieldsArr.every(f => isExist(obj, f));
+const omittedFields = ['id', 'health'];
+const requiredFields = Object.keys(fighter).filter(f => !omittedFields.includes(f));
+const hasInValidFields = (fighterObj) => !Object.keys(fighterObj).every(f => isValidFighterProperty(f));
+
+const isNumberBetween = (num, start, end) => !isNaN(num) && typeof num === 'number' && (num >= start) && (num <= end);
+const isFighterAlreadyExistWithName = (name) => Boolean(fighterService.search({ name }));
+const isFighterAlreadyExistWithId = (id) => Boolean(fighterService.search({ id }));
 
 const createFighterValid = (req, res, next) => {
-    // TODO: Implement validatior for fighter entity during creation
-    const newFighter = req.body;
-    const fighterKeys = Object.keys(fighter);
-    const newFighterKeys = Object.keys(newFighter);
-    const sameKeys = newFighterKeys.every((key) => fighterKeys.includes(key));
-    const { name: newName, power, health, defense } = newFighter;
-
-    if (!sameKeys || newFighter.id || newFighterKeys.length < 3 || newFighterKeys.length > 4) {
-        res.status(400);
-        res.err = "Invalid fighter data!";
-        return middleware(req, res, next);
-    }
-
-    if (newFighter.length === 0) {
-        res.status(400).send(`Fighter data haven't been found!`);
-        return middleware(req, res, next);
-    }
-
-    if (!power) {
-        res.status(400).send(`Fighter power haven't been found!`);
-        return middleware(req, res, next);
-    }
-
-    if (!defense) {
-        res.status(400).send(`Fighter defense haven't been found!`);
-        return middleware(req, res, next);
-    }
-
-    if (!health) {
-        newFighter.health = 100;
-    }
-
-    if (isNaN(power) || Number(power) > 100 || Number(power) < 1) {
-        res.status(400).send(`Enter the power value from 1 to 100!`);
-        return middleware(req, res, next);
-    }
-
-    if (isNaN(defense) || Number(defense) > 10 || Number(defense) < 1) {
-        res.status(400).send(`Enter the defense value from 1 to 10!`);
-        return middleware(req, res, next);
-    }
-
-    if (isNaN(newFighter.health) || Number(newFighter.health) > 120 || Number(newFighter.health) < 80) {
-        res.status(400).send(`Enter the health value from 80 to 120!`);
-        return middleware(req, res, next);
-    }
-
-    let isError = false;
-    const fighters = fighterService.getFighters();
-    fighters.map((fighter) => {
-        if (fighter.name.toLowerCase() === newName.toLowerCase()) {
-            res.status(400).send(`A fighter with such a name already exists! Please, enter a different name!`);
-            isError = true;
-        }
-    });
-
-    if (isError) {
-        return middleware(req, res, next);
-    }
-
-    next();
-}
-const fighterExist = (req, res, next) => {
-    console.log(req.params.id);
+    const fighterData = req.body;
+    const hasAllRequiredFields = hasFieds(fighterData, requiredFields);
 
     try {
-        if (!FighterRepository.getOne({ id: req.params.id })) {
-            throw new Error(`User with id: "${req.params.id}" does not exist.`);
+        if (isEmpty(fighterData)) {
+            throw new Error(`Payload should not be empty!`);
+        } else if (!hasAllRequiredFields) {
+            throw new Error(`Not all required fields are set! Required fields are: ${requiredFields.toString()}`);
+        } else if (fighterData.id) {
+            throw new Error(`The 'id' field should not be present!`);
+        } else if (hasInValidFields(fighterData)) {
+            throw new Error(`Should not contain other fields!`);
+        } else if (fighterData.health && !isNumberBetween(fighterData.health, 80, 120)) {
+            throw new Error(`The 'health' value from 80 to 120!`);
+        } else if (!isNumberBetween(fighterData.power, 1, 100)) {
+            throw new Error(`The 'power' value from 1 to 100!`);
+        } else if (!isNumberBetween(fighterData.defense, 1, 10)) {
+            throw new Error(`The 'defense' value from 1 to 10!`);
+        } else if (isFighterAlreadyExistWithName(fighterData.name)) {
+            throw new Error(`The fighter with name: '${fighterData.name}' already exist!`);
         }
+
+        fighterData.health = fighterData.health || 100;
     } catch (error) {
         return res.status(400).json({ error: true, message: error.message });
     }
@@ -81,61 +45,46 @@ const fighterExist = (req, res, next) => {
 }
 
 const updateFighterValid = (req, res, next) => {
-    // TODO: Implement validatior for fighter entity during update
+    const fighterData = req.body;
 
-    const { id } = req.params;
-    const newFighter = req.body;
-    const fighterKeys = Object.keys(fighter);
-    const newFighterKeys = Object.keys(newFighter);
-    const sameKeys = newFighterKeys.every((key) => fighterKeys.includes(key));
-    const { name: newName, power, health, defense } = newFighter;
-
-    if (!sameKeys || newFighter.id) {
-        res.status(400).send('Not All required fields are set!');
-        return middleware(req, res, next);
-    }
-
-    if (newFighterKeys.length === 0) {
-        res.status(400).send('Not All required fields are set!');
-        return middleware(req, res, next);
-    }
-
-    if ((power && isNaN(power)) || (power && Number(power) > 100) || Number(power) < 1) {
-        res.status(400).send('Enter the power value from 1 to 100!');
-        return middleware(req, res, next);
-    }
-
-    if ((defense && isNaN(defense)) || (defense && Number(defense) > 10) || Number(defense) < 1) {
-        res.status(400).send('Enter the defense value from 1 to 10!');
-        return middleware(req, res, next);
-    }
-
-    if ((health && isNaN(health)) || (health && Number(health) > 120) || Number(health) < 80) {
-        res.status(400).send('Enter the health value from 80 to 120!');
-        return middleware(req, res, next);
-    }
-
-    let isError = false;
-    const fighters = fighterService.getFighters();
-    fighters
-        .filter((fighter) => fighter.id !== id)
-        .map((fighter) => {
-            if (
-                newName &&
-                fighter.name.toLowerCase() === newName.toLowerCase()
-            ) {
-                res.status(400).send('The name already exists!! Please, enter a different name!');
-                isError = true;
-            }
-        });
-
-    if (isError) {
-        return middleware(req, res, next);
+    try {
+        if (isEmpty(fighterData)) {
+            throw new Error(`Payload should not be empty!`);
+        } else if (hasInValidFields(fighterData)) {
+            throw new Error(`Should not contain other fields!`);
+        } else if (fighterData.id) {
+            throw new Error(`The 'id' field should not be present!`);
+        } else if (fighterData.health && !isNumberBetween(fighterData.health, 80, 120)) {
+            throw new Error(`Enter the health value from 80 to 120!`);
+        } else if (fighterData.power && !isNumberBetween(fighterData.power, 1, 100)) {
+            throw new Error(`Enter the power value from 1 to 100!`);
+        } else if (fighterData.defense && !isNumberBetween(fighterData.defense, 1, 10)) {
+            throw new Error(`Enter the defense value from 1 to 10!`);
+        }
+    } catch (error) {
+        return res.status(400).json({ error: true, message: error.message });
     }
 
     next();
 }
 
-exports.fighterExist = fighterExist;
+const getFighterValid = (req, res, next) => {
+    if (!isFighterAlreadyExistWithId(req.params.id)) {
+        return res.status(404).json({ error: true, message: `Fighter with id: "${req.params.id}" not found.` });
+    }
+
+    next();
+}
+
+const deleteFighterValid = (req, res, next) => {
+    if (!isFighterAlreadyExistWithId(req.params.id)) {
+        return res.status(404).json({ error: true, message: `Fighter with id: "${req.params.id}" not found.` });
+    }
+
+    next();
+}
+
+exports.getFighterValid = getFighterValid;
 exports.createFighterValid = createFighterValid;
 exports.updateFighterValid = updateFighterValid;
+exports.deleteFighterValid = deleteFighterValid;
