@@ -1,49 +1,34 @@
 const { Router } = require('express');
 const fighterService = require('../services/fighterService');
 const { responseMiddleware } = require('../middlewares/response.middleware');
-const { createFighterValid, updateFighterValid, fighterExist } = require('../middlewares/fighter.validation.middleware');
+const { getFighterValid, createFighterValid, updateFighterValid, deleteFighterValid } = require('../middlewares/fighter.validation.middleware');
 
 const router = Router();
-
-// TODO: Implement route controllers for fighter
-
 
 router.get('/', (req, res, next) => {
     res.data = fighterService.getFighters();
     next();
-},
-    responseMiddleware
-)
+}, responseMiddleware);
 
-router.get('/:id', (req, res, next) => {
-    res.data = fighterService.getFightersById(req.params.id);
+router.get('/:id', getFighterValid, (req, res, next) => {
+    res.data = fighterService.getFighterById(req.params.id);
     next();
-},
-    responseMiddleware
-);
+}, responseMiddleware);
 
 router.post('/', createFighterValid, (req, res, next) => {
     res.data = fighterService.addFighter(req.body);
     next();
-},
-    responseMiddleware
-);
+}, responseMiddleware);
 
 router.put('/:id', updateFighterValid, (req, res, next) => {
     res.data = fighterService.updateFighter(req.params.id, req.body);
     next();
-},
-    responseMiddleware
-);
+}, responseMiddleware);
 
-router.delete('/:id', fighterExist, (req, res, next) => {
-    console.log(req.params.id);
+router.delete('/:id', deleteFighterValid, (req, res, next) => {
     fighterService.deleteFighter(req.params.id);
-    res.data = { message: `Successfully fighter user with id ${req.params.id}` };
-
+    res.data = { message: `Successfully deleted fighter with id: '${req.params.id}'` };
     next();
-},
-    responseMiddleware
-);
+}, responseMiddleware);
 
 module.exports = router;
