@@ -12,46 +12,6 @@
   ],
   "fighters": [
     {
-      "name": "rr",
-      "power": 2,
-      "defense": 4,
-      "health": 100,
-      "id": "c02c8871-a00e-45e3-a11d-9ee2f79bd973",
-      "createdAt": "2022-06-13T21:38:23.559Z"
-    },
-    {
-      "name": "rrrt",
-      "power": 6,
-      "defense": 6,
-      "health": 100,
-      "id": "e6577b17-b338-4063-ab92-ceac7e0c4b20",
-      "createdAt": "2022-06-13T21:38:43.174Z"
-    },
-    {
-      "name": "eerr",
-      "power": 3,
-      "defense": 2,
-      "health": 100,
-      "id": "a6f1a1f7-27b9-478f-9351-9203945e1479",
-      "createdAt": "2022-06-13T21:55:31.771Z"
-    },
-    {
-      "name": "www",
-      "power": 100,
-      "defense": 10,
-      "health": 100,
-      "id": "59b76872-e358-4a89-830b-c88eca34f866",
-      "createdAt": "2022-06-13T22:10:25.560Z"
-    },
-    {
-      "name": "wwwr",
-      "power": 100,
-      "defense": 10,
-      "health": 100,
-      "id": "f729acfa-2509-4b93-b8d9-2d3fb44ee1df",
-      "createdAt": "2022-06-13T22:10:39.481Z"
-    },
-    {
       "name": "eerrq",
       "power": 100,
       "defense": 5,

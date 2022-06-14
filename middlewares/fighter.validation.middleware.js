@@ -1,6 +1,7 @@
 const { fighter } = require('../models/fighter');
 const fighterService = require("../services/fighterService");
 const { responseMiddleware: middleware } = require("../middlewares/response.middleware");
+const { FighterRepository } = require('../repositories/fighterRepository');
 
 const createFighterValid = (req, res, next) => {
     // TODO: Implement validatior for fighter entity during creation
@@ -65,9 +66,23 @@ const createFighterValid = (req, res, next) => {
 
     next();
 }
+const fighterExist = (req, res, next) => {
+    console.log(req.params.id);
+
+    try {
+        if (!FighterRepository.getOne({ id: req.params.id })) {
+            throw new Error(`User with id: "${req.params.id}" does not exist.`);
+        }
+    } catch (error) {
+        return res.status(400).json({ error: true, message: error.message });
+    }
+
+    next();
+}
 
 const updateFighterValid = (req, res, next) => {
     // TODO: Implement validatior for fighter entity during update
+
     const { id } = req.params;
     const newFighter = req.body;
     const fighterKeys = Object.keys(fighter);
@@ -121,5 +136,6 @@ const updateFighterValid = (req, res, next) => {
     next();
 }
 
+exports.fighterExist = fighterExist;
 exports.createFighterValid = createFighterValid;
 exports.updateFighterValid = updateFighterValid;
