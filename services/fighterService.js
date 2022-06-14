@@ -22,6 +22,13 @@ class FighterService {
         return FighterRepository.delete(id);
 
     }
+    search(search) {
+        const item = FighterRepository.getOne(search);
+        if (!item) {
+            return null;
+        }
+        return item;
+    }
 }
 
 module.exports = new FighterService();

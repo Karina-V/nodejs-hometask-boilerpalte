@@ -1,54 +1,49 @@
 const { Router } = require('express');
 const fighterService = require('../services/fighterService');
-const { responseMiddleware: middleware } = require('../middlewares/response.middleware');
-const { createFighterValid, updateFighterValid } = require('../middlewares/fighter.validation.middleware');
+const { responseMiddleware } = require('../middlewares/response.middleware');
+const { createFighterValid, updateFighterValid, fighterExist } = require('../middlewares/fighter.validation.middleware');
 
 const router = Router();
 
 // TODO: Implement route controllers for fighter
 
-const getFighterData = (data, res, next) => {
-    try {
-        res.data = data;
-    } catch (error) {
-        res.err = error;
-    } finally {
-        next();
-    }
-};
 
-router.get('/', (req, res, next) =>
-    getFighterData(fighterService.getFighters(), res, next),
-    middleware,
+router.get('/', (req, res, next) => {
+    res.data = fighterService.getFighters();
+    next();
+},
+    responseMiddleware
+)
+
+router.get('/:id', (req, res, next) => {
+    res.data = fighterService.getFightersById(req.params.id);
+    next();
+},
+    responseMiddleware
 );
 
-router.get('/:id', (req, res, next) =>
-    getFighterData(fighterService.getFighterById(req.params.id), res, next),
-    middleware,
+router.post('/', createFighterValid, (req, res, next) => {
+    res.data = fighterService.addFighter(req.body);
+    next();
+},
+    responseMiddleware
 );
 
-router.post('/', createFighterValid, (req, res, next) =>
-    getFighterData(fighterService.addFighter(req.body), res, next),
-    middleware,
+router.put('/:id', updateFighterValid, (req, res, next) => {
+    res.data = fighterService.updateFighter(req.params.id, req.body);
+    next();
+},
+    responseMiddleware
 );
 
-router.put('/:id', updateFighterValid, (req, res, next) =>
-    getFighterData(fighterService.updateFighter(req.params.id, req.body), res, next),
-    middleware,
+router.delete('/:id', fighterExist, (req, res, next) => {
+    console.log(req.params.id);
+    fighterService.deleteFighter(req.params.id);
+    res.data = { message: `Successfully fighter user with id ${req.params.id}` };
+
+    next();
+},
+    responseMiddleware
 );
-
-router.put('/:id', (req, res, next) =>
-    getFighterData(fighterService.deleteFighter(req.params.id), res, next),
-    (req, res, next) => {
-        if (res.data.length) {
-            res.data = { message: `Fighter with id: ${id} deleted` };
-            res.statusCode = 200;
-        } else {
-            res.statusCode = 404;
-        }
-        middleware
-        next();
-    });
-
 
 module.exports = router;
